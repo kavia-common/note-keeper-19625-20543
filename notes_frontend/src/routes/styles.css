@@ -1,37 +1,15 @@
-/**
- * Ultralight template styles - minimal and clean
- */
-
-.page-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 2rem;
+/* Route scope helpers kept minimal to avoid conflicts with global theme */
+.container {
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-.main-title {
-  font-size: 3rem;
-  font-weight: 300;
-  text-align: center;
-  color: var(--primary-color);
-  margin: 0;
+.heading-xl {
+  font-size: 2rem;
+  font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.2;
 }
 
 @media (max-width: 768px) {
-  .main-title {
-    font-size: 2rem;
-  }
-  
-  .page-container {
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-title {
-    font-size: 1.5rem;
-  }
+  .heading-xl { font-size: 1.5rem; }
 }

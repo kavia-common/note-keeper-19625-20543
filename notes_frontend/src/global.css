@@ -1,41 +1,273 @@
 /**
- * WHAT IS THIS FILE?
- *
- * Globally applied styles for the ultralight Qwik template.
- * Uses a minimalistic light theme with specified color scheme.
+ * Global styles - Ocean Professional (Elegant)
+ * Soft pastels, gentle gradients, refined rounded components.
+ * Tokens follow:
+ *  primary: #F472B6, secondary: #F59E0B, success: #10B981, error: #EF4444,
+ *  gradient: from-rose-50 to-purple-50, background: #FDF2F8, surface: #FFFFFF, text: #374151
  */
 
 :root {
-  --primary-color: #000000;
-  --secondary-color: #333333;
-  --accent-color: #0078d4;
-  --background-color: #ffffff;
+  --color-primary: #F472B6;
+  --color-primary-600: #ec4899;
+  --color-secondary: #F59E0B;
+  --color-success: #10B981;
+  --color-error: #EF4444;
+
+  --color-bg: #FDF2F8;
+  --color-surface: #FFFFFF;
+  --color-text: #374151;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 24px rgba(0,0,0,0.1);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  --gradient-soft: linear-gradient(135deg, #ffe4e6 0%, #fae8ff 50%, #ede9fe 100%);
+  --gradient-header: linear-gradient(135deg, #ffe4e6 0%, #fbcfe8 50%, #e9d5ff 100%);
 }
 
+* { box-sizing: border-box; }
 html {
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
   font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    "Noto Sans",
-    sans-serif;
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--background-color);
-  color: var(--primary-color);
-  line-height: inherit;
+  color: var(--color-text);
+  background: var(--gradient-soft);
+  min-height: 100vh;
 }
 
-* {
-  box-sizing: border-box;
+/* Layout shells */
+.app {
+  display: grid;
+  grid-template-rows: 64px 1fr;
+  min-height: 100vh;
+}
+
+.topnav {
+  backdrop-filter: saturate(180%) blur(8px);
+  background: var(--gradient-header);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  font-weight: 700;
+  letter-spacing: .2px;
+  color: var(--color-text);
+}
+
+.brand-badge {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: radial-gradient(120px 80px at 20% 0%, #fbcfe8, #e9d5ff);
+  box-shadow: var(--shadow-sm);
+  display: grid; place-items: center;
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.app-inner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.sidebar {
+  background: var(--color-surface);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  min-height: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  overflow: auto;
+}
+
+.category-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  padding: .6rem .75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.category-item:hover {
+  background: #fff7ed;
+  border-color: rgba(245, 158, 11, .25);
+}
+
+.category-item.active {
+  background: #fef3c7;
+  border-color: rgba(245, 158, 11, .6);
+}
+
+.main {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.toolbar {
+  background: var(--color-surface);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: .75rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1rem;
+  min-height: 0;
+}
+
+.notes-list, .editor {
+  background: var(--color-surface);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 1rem;
+  min-height: 0;
+}
+
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  overflow: auto;
+}
+
+.note-card {
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-md);
+  padding: .75rem .9rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: .25rem .5rem;
+  cursor: pointer;
+  transition: transform .06s ease;
+}
+
+.note-card:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+.note-card.active { border-color: rgba(244,114,182,.55); background: #fff1f2; }
+.note-title { font-weight: 700; color: #111827; }
+.note-meta { font-size: .75rem; color: #6b7280; }
+.note-actions { display: flex; align-items: center; gap: .25rem; }
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.input, .textarea, .select {
+  width: 100%;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius-md);
+  padding: .65rem .75rem;
+  outline: none;
+  font: inherit;
+  color: var(--color-text);
+  background: #fff;
+}
+
+.textarea {
+  min-height: 220px;
+  resize: vertical;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: .55rem .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+  transition: box-shadow .12s ease, transform .06s ease, background .12s ease;
+}
+
+.btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+  border-color: rgba(0,0,0,0.0);
+}
+.btn-secondary {
+  background: #fffbeb;
+  color: #92400e;
+  border-color: rgba(245,158,11,.35);
+}
+.btn-ghost {
+  background: transparent;
+  border-color: rgba(0,0,0,0.08);
+  color: var(--color-text);
+}
+
+.badge {
+  font-size: .7rem;
+  padding: .15rem .5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #fff7ed;
+  color: #92400e;
+}
+
+.helper {
+  font-size: .8rem;
+  color: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .app-inner { grid-template-columns: 1fr; }
+  .content { grid-template-columns: 1fr; }
 }
